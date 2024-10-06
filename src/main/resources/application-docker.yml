@@ -19,10 +19,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
   mail:
-    host: email-smtp.us-west-2.amazonaws.com
+    host: ${{ email-smtp.url }}
     port: 587
-    username: AKIARQGLJD3UHE5MGO5U
-    password: BDPEKBJR3TV38/5vwlb8ndX2jcNgj5QQLN+JdgR1JmVa
+    username: userid
+    password: password
   redis:
     host: redis
     port: 6379
@@ -65,14 +65,4 @@ minio:
   server: "http://10.200.0.24:2838"
   bucket: "virnect-platform"
 
-cloud:
-  aws:
-    credentials:
-      access-key: AKIARQGLJD3UCFBXNUWQ
-      secret-key: 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
-    region:
-      auto: true
-    s3:
-      prefix: "https://virnect-platform-qa.s3.ap-northeast-2.amazonaws.com/"
-      bucket:
-        name: "virnect-platform-qa"
+
