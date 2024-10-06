@@ -1,0 +1,13 @@
+.gradle
+bin
+build
+gradle
+docker
+Jenkinsfile
+Jenkinsfile_config
+Jenkinsfile_server_simple
+sonar-project.properties
+README.md
+.gitignore
+HELP.md
+*.md

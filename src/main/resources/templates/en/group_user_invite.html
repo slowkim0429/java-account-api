@@ -1,0 +1,123 @@
+<xmeta content="text/html; charset=utf-8" http-equiv="Content-Type" xmlns:th="http://www.thymeleaf.org">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <meta content="telephone=no, date=no, address=no, email=no" name="format-detection">
+        <meta name="x-apple-disable-message-reformatting">
+
+        <title>[SQUARS] [[${groupName}]] Group Invitation</title>
+        <!--[if mso]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <th:block th:insert="~{en/style}"></th:block>
+    </head>
+    <body style="font-family: 'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif, Arial; background: #ffffff; font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666;">
+    <div align="center"
+         style="width: 800px; font-family:'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif ,Arial; background: #FFFFFF;font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666; margin:0 auto;">
+        <div th:replace="~{en/header}"></div>
+        <table class="tg" style="padding: 0; border: 0; border-collapse: collapse; border-spacing: 0;">
+            <tbody style="padding: 0; border: 0;">
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax"
+                    style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding: 6px 0 40px 0; margin: 0;"
+                    valign="top">
+                    <img alt="line" src="https://image.squars.io/header/line.png" width="800">
+                </td>
+            </tr>
+
+
+            <div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                             style="height:300px; v-text-anchor:middle;width:800px;" arcsize="6%" stroke="f"
+                             fillcolor="#F9F9F9">
+                    <w:anchorlock/>
+                    <center>
+                <![endif]-->
+
+                <tr style="padding: 0; border: 0;">
+                    <td align="center"
+                        class="tg-0lax personal-info-wrapper"
+                        height="136"
+                        style="border: 0; width: 800px; height: 136px; background: #F9F9F9; margin-bottom: 32px; font-size: 14px; overflow: hidden; word-break: normal; border-radius: 12px; vertical-align: middle; text-align: center; padding: 40px 0 40px 0; margin: 0;"
+                        valign="middle" width="800">
+                        <table align="center"
+                               class="tg"
+                               style="padding: 0; border: 0; border-collapse: collapse; border-spacing: 0; width: 100%; text-align: center;"
+                               width="100%">
+                            <tbody style="padding: 0; border: 0;">
+                            <tr style="padding: 0; border: 0;">
+                                <td class="padding-top:40px; margin:0;"
+                                    style="padding: 0; border: 0; font-size: 14px; overflow: hidden; word-break: normal;">
+
+                                    <p style="vertical-align:middle; margin:0px;">
+                                        <img alt="group_profile" height="24" style="vertical-align: middle;"
+                                             th:src="${colorUrl}" width="24">
+                                        <span style="font-size: 18px; color: #111111; display:inline-block; text-align:center; vertical-align: middle;">&nbsp;<b
+                                                class="bold">[[${groupName}]]</b></span>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr style="padding: 0; border: 0;">
+                                <td style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; padding: 28px 0 32px 0; margin: 0 0 0 0;">
+                                    <p style="width:100%; margin:0; display: inline-block; font-size: 16px; color: #333333; ">
+                                        <b class="bold">[[${currentUserNickname}]]</b>([[${currentUserEmail}]]) invited
+                                        you to the group [[${groupName}]] </p>
+
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+
+                    </td>
+                </tr>
+                <!--[if mso]>
+                </center>
+                </v:roundrect>
+                <![endif]-->
+            </div>
+            <tr style="padding: 0; border: 0;">
+                <td align="center"
+                    style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; padding: 32px 0 0 0; text-align: center;">
+                    <div><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                                     xmlns:w="urn:schemas-microsoft-com:office:word"
+                                     th:href="@{${inviteUrl}(redirect=${fullRedirectUrl},locale=${localeCode},token=${inviteToken})}"
+                                     style="height:50px;v-text-anchor:middle;width:190px;" arcsize="12%" stroke="f"
+                                     fillcolor="#009DFF">
+                            <w:anchorlock/>
+                            <center>
+                        <![endif]-->
+                        <a style="margin: 0; padding: 13px 42px;display:inline-block; box-sizing: border-box; text-decoration: none; background-color: #009DFF; border-radius: 6px; color: #ffffff; display: inline-block; font-size: 16px; cursor: pointer; "
+                           target="_blank"
+                           th:href="@{${inviteUrl}(redirect=${fullRedirectUrl},locale=${localeCode},token=${inviteToken})}">Accept</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]--></div>
+
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <div th:replace="~{en/footer}"></div>
+
+    </div>
+    </body>
+    </html>
+
+</xmeta>

@@ -1,0 +1,103 @@
+<xmeta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <meta content="telephone=no, date=no, address=no, email=no" name="format-detection">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta content="light dark" name="color-scheme">
+
+        <title>[SQUARS] Verification Code</title>
+        <!--[if mso]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <th:block th:insert="~{en/style}"></th:block>
+    </head>
+    <body style="font-family: 'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif, Arial; background: #ffffff; font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666;">
+    <div align="center"
+         style="width: 800px; font-family:'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif ,Arial; background: #FFFFFF;font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666; margin:0 auto;">
+        <div th:replace="~{en/header}"></div>
+        <table class="tg" style="padding: 0; border: 0; border-collapse: collapse; border-spacing: 0;">
+            <tbody style="padding: 0; border: 0;">
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax"
+                    style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding: 6px 0 40px 0; margin: 0;"
+                    valign="top">
+                    <img alt="line" src="https://image.squars.io/header/line.png" width="800">
+                </td>
+            </tr>
+
+
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax greeting"
+                    style="padding: 0; border: 0; font-weight: 400; font-size: 16px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; color: #333333;"
+                    valign="top">
+                    Hello, we're
+                    <b class="bold">
+                        SQUARS.
+                    </b>
+                    <br>
+                    Please enter the 6-digit code below into the field provided on the sign-up page to verify your
+                    identity.
+                </td>
+            </tr>
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax verification-code-description"
+                    style="padding: 0; border: 0; padding-top: 40px; font-weight: 400; line-height: 20px; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding-bottom: 12px;"
+                    valign="top">
+                    Email verification code
+                </td>
+            </tr>
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax verification-code"
+                    height="136"
+                    style="padding: 0; border: 0; width: 800px; height: 136px; background: #F9F9F9; padding-top: 12px; margin-bottom: 32px; font-weight: 400; line-height: 56px; overflow: hidden; word-break: normal; text-align: left; border-radius: 12px; vertical-align: middle; margin: 0; font-size: 40px !important; color: #333333 !important;"
+                    valign="middle" width="800">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                                     xmlns:w="urn:schemas-microsoft-com:office:word"
+                                     style="height:200px; color:#000000; font-weight: 400; font-size: 40px; line-height: 56px; v-text-anchor:middle;width:800px;"
+                                     arcsize="6%" stroke="f" fillcolor="#F9F9F9">
+                            <w:anchorlock/>
+                            <center>
+                        <![endif]-->
+                        <p style="margin:0; vertical-align:middle; text-align:center; color:#333333; font-weight: 400; font-size: 40px; line-height: 56px; ">
+                            [[${code}]]
+                        </p>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax blue-description"
+                    style="border: 0; font-weight: 400; line-height: 20px; color: #009DFF; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding: 12px 0 0 0;"
+                    valign="top">
+                    * To protect personal information, the verification code is only valid for 30 minutes.
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <div th:replace="~{en/footer}"></div>
+
+    </div>
+    </body>
+    </html>
+</xmeta>

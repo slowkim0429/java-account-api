@@ -1,0 +1,184 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "io.franzbecker.gradle-lombok" version "3.3.0"
+    id 'java'
+    id 'jacoco'
+}
+
+ext {
+    springCloudVersion = 'Hoxton.SR10'
+    mapstructVersion = '1.4.2.Final'
+}
+
+group = 'com.virnect'
+version = '1.22.0'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.data:spring-data-envers'
+
+    runtimeOnly 'com.h2database:h2'
+    implementation('it.ozimov:embedded-redis:0.7.3') {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
+
+    // security 관련 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //websocket
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.session:spring-session-data-redis'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    runtimeOnly 'mysql:mysql-connector-java'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'com.google.code.gson:gson:2.8.7'
+
+    // Netflix Feign Client
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-config-client'
+
+    implementation group: 'io.github.openfeign.form', name: 'feign-form', version: '3.8.0'
+    implementation 'io.github.openfeign:feign-httpclient:11.9.1'
+
+    //email
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // Query DSL
+    implementation "com.querydsl:querydsl-jpa"
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
+    annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+    annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+
+    // jwt 관련 의존성
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    //Swagger Libraries
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+    // JSON PARSING
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Apache Common Lang and Http Component
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+
+    // map struct
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+
+    // file
+    implementation 'io.minio:minio:7.1.2'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.11.415'
+
+    annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+    testAnnotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+
+    // spring cloud
+    implementation 'org.springframework.cloud:spring-cloud-config-client'
+
+    // eureka
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+    // config security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // spring config textEncryptor
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+
+
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    // monitoring
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'io.sentry:sentry-spring-boot-starter:6.24.0'
+    implementation 'io.sentry:sentry-logback:6.24.0'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty("spring.active.profiles", "test")
+    systemProperty("VIRNECT_ENV", "test")
+    finalizedBy jacocoTestReport
+}
+
+/**
+ * Jacoco Configuration
+ */
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        csv.enabled true
+        xml.enabled true
+    }
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "com/virnect/account/AccountApplication.java",
+                    "src/main/resources/templates/*",
+                    "src/test/*",
+                    "**/*Config.*",
+                    "**/*Configuration.*"
+            ])
+        }))
+    }
+
+    finalizedBy jacocoTestCoverageVerification
+}
+
+/**
+ * QueryDsl Configuration
+ */
+
+def querydslDir = "$buildDir/generated/querydsl"
+
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+tasks.withType(JavaCompile) {
+    options.generatedSourceOutputDirectory = file(querydslDir)
+}
+
+clean {
+    delete file(querydslDir)
+}
+
+/**
+ *  Build Configuration
+ */
+bootJar {
+    layered()
+}

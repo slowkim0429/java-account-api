@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  account-server:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    container_name: 'account-server'
+    environment:
+      - VIRNECT_ENV=docker
+    ports:
+      - 8521:8521
+    links:
+      - redis
+      - mariadb
+    depends_on:
+      - redis
+      - mariadb
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    environment:
+      - MARIADB_ROOT_PASSWORD=1234
+  redis:
+    image: redis

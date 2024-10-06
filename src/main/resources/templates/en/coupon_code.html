@@ -1,0 +1,180 @@
+<xmeta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <meta content="telephone=no, date=no, address=no, email=no" name="format-detection">
+        <meta name="x-apple-disable-message-reformatting">
+
+        <title>Email title</title>
+        <!--[if mso]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <th:block th:insert="~{en/style}"></th:block>
+    </head>
+    <body style="font-family: 'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif, Arial; background: #ffffff; font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666;">
+    <div align="center"
+         style="width: 800px; font-family:'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif ,Arial; background: #FFFFFF;font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666; margin:0 auto;">
+        <div th:replace="~{en/header}"></div>
+        <table class="tg" style="padding: 0; border: 0; border-collapse: collapse; border-spacing: 0;">
+            <tbody style="padding: 0; border: 0;">
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax"
+                    style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding: 6px 0 34px 0; margin: 0;"
+                    valign="top">
+                    <img alt="line" src="https://image.squars.io/header/line.png" width="800">
+                </td>
+            </tr>
+
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax"
+                    style="border: 0; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding: 6px 0 34px 0; margin: 0;"
+                    valign="top">
+                    <img alt="image" height="268" th:src="@{${emailContentInlineImageUrl}}" width="800">
+                </td>
+            </tr>
+
+            <tr style="padding: 0; border: 0;">
+                <td align="left"
+                    class="tg-0lax check-description"
+                    style="padding: 0; border: 0; font-size: 14px; overflow: hidden; word-break: normal; text-align: left; vertical-align: top; padding-bottom: 12px;"
+                    valign="top">
+                    <p style="padding:0; margin:0;">
+                        Check your coupon information
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                         style="height:400px; v-text-anchor:middle;width:800px;" arcsize="6%" stroke="f"
+                         fillcolor="#F9F9F9">
+                <w:anchorlock/>
+                <center>
+            <![endif]-->
+            <table align="center"
+                   class="information_card"
+                   valign="middle">
+                <tbody style="padding: 0; border: 0;">
+                <tr style="padding: 0; border: 0;">
+                    <th align="left" height="24"
+                        style="border: 0; width:109px; height: 24px; vertical-align: middle; text-align: left; font-weight: 400; font-size: 14px; line-height: 20px; padding-right: 50px;"
+                        valign="middle">
+                        Coupon code
+                    </th>
+                    <td align="left"
+                        height="24"
+                        style="padding: 0; border: 0; height: 24px; vertical-align: middle; text-align: left; color: #111111; font-weight: 400; font-size: 18px;"
+                        valign="middle">
+                        [[${code}]]
+                    </td>
+                </tr>
+
+                <tr style="padding: 0; border: 0;">
+                    <th align="left"
+                        height="24"
+                        style="border: 0; width:109px; height: 24px; padding-top: 24px; text-align: left; font-weight: 400; font-size: 14px; line-height: 20px; padding-right: 50px;">
+                        Advantage
+                    </th>
+                    <td align="left"
+                        style="padding: 0; border: 0; text-align: left; padding-top: 24px; color: #111111; font-weight: 400; font-size: 18px;">
+                        [[${benefitOptionAndValue}]]
+                    </td>
+                </tr>
+
+                <tr style="padding: 0; border: 0;">
+                    <td align="left" colspan="2"
+                        style="padding: 0; border: 0; text-align: left; padding-top: 24px;">
+                        <hr style="height: 1px; background: rgba(0, 0, 0, 0.08); border:0;">
+                    </td>
+                </tr>
+
+
+                <tr style="padding: 0; border: 0;">
+                    <th align="left"
+                        height="24"
+                        style="border: 0; width:109px; height: 24px; padding-top: 24px; text-align: left; font-weight: 400; font-size: 14px; line-height: 20px; padding-right: 50px;">
+                        Plan type
+                    </th>
+                    <td align="left"
+                        height="24"
+                        style="padding: 0; border: 0; height: 24px; padding-top: 24px; text-align: left; color: #111111; font-weight: 400; font-size: 18px;">
+                        [[${couponLicenseGradeMatchingType}]]
+                    </td>
+                </tr>
+                <tr style="padding: 0; border: 0;">
+                    <th align="left"
+                        height="24"
+                        style="border: 0; width:109px; height: 24px; padding-top: 24px; text-align: left; font-weight: 400; font-size: 14px; line-height: 20px; padding-right: 50px;">
+                        Subscription type
+                    </th>
+                    <td align="left"
+                        style="padding: 0; border: 0; text-align: left; padding-top: 24px; color: #111111; font-weight: 400; font-size: 18px;">
+                        [[${couponRecurringIntervalMatchingType}]]
+                    </td>
+                </tr>
+                <tr style="padding: 0; border: 0;">
+                    <th align="left"
+                        height="24"
+                        style="border: 0; width:109px; height: 24px; padding-top: 24px; text-align: left; font-weight: 400; font-size: 14px; line-height: 20px; padding-right: 50px;">
+                        Validity period
+                    </th>
+                    <td align="left"
+                        style="padding: 0; border: 0; text-align: left; padding-top: 24px; color: #111111; font-weight: 400; font-size: 18px;">
+                        [[${expiredDate}]] ([[${timeZoneInfo}]])
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <!--[if mso]>
+            </center>
+            </v:roundrect>
+            <![endif]-->
+        </div>
+
+        <table class="tg" style="padding: 0; border: 0; border-collapse: collapse; border-spacing: 0;">
+            <tbody style="padding: 0; border: 0;">
+
+            <tr style="padding: 0; border: 0;">
+                <td align="center"
+                    style="padding: 0; border: 0; overflow: hidden; word-break: normal; text-align: center; font-size: 0; padding-top: 32px;">
+                    <div><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                                     xmlns:w="urn:schemas-microsoft-com:office:word" th:href="@{${fullRedirectUrl}}"
+                                     style="height:50px;v-text-anchor:middle;width:190px;" arcsize="12%" stroke="f"
+                                     fillcolor="#009DFF">
+                            <w:anchorlock/>
+                            <center>
+                        <![endif]-->
+                        <a style="box-sizing: border-box; text-decoration: none; background-color: #009DFF; border-radius: 6px; color: #ffffff; display: inline-block; font-size: 16px; cursor: pointer; margin: 0; padding: 13px 42px;"
+                           target="_blank"
+                           th:href="@{${fullRedirectUrl}}">Apply
+                            Coupon</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]--></div>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <div th:replace="~{en/footer}"></div>
+
+    </div>
+    </body>
+    </html>
+</xmeta>

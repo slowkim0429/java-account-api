@@ -1,0 +1,107 @@
+<xmeta content="text/html; charset=utf-8" http-equiv="Content-Type" xmlns:th="http://www.thymeleaf.org">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <meta content="telephone=no, date=no, address=no, email=no" name="format-detection">
+        <meta name="x-apple-disable-message-reformatting">
+
+        <title>[SQUARS] Member Registration</title>
+        <!--[if mso]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <th:block th:insert="~{en/style}"></th:block>
+    </head>
+    <body style="font-family: 'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif, Arial; background: #ffffff; font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666;">
+    <div align="center"
+         style="width: 800px; font-family:'Roboto','Noto Sans KR','Apple SD Gothic Neo', sans-serif ,Arial; background: #FFFFFF;font-style: normal; font-weight: 400; font-size: 12px; line-height: 20px; color: #666666; margin:0 auto;">
+        <div th:replace="~{en/header}"></div>
+        <table>
+            <tr style="padding:0;border:0">
+                <td align="left"
+                    style="border:0;font-size:14px;overflow:hidden;word-break:normal;text-align:left;vertical-align:top;padding:6px 0 40px 0;margin:0"
+                    valign="top">
+                    <img alt="line" class="CToWUd" data-bit="iit"
+                         src="https://ci4.googleusercontent.com/proxy/RBjuQMdHer-Gl42ER9VA4AloYjGowc2Dhx5n5Yy7g2dfnOId9A-nM_jseItaIA2lRMw3BFsrd51peA=s0-d-e1-ft#https://image.squars.io/header/line.png"
+                         width="800">
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; padding:0; border:0; border-collapse:collapse; border-spacing:0">
+            <tbody style="padding:0; border:0">
+            <tr style="padding:0; border:0">
+                <td align="left"
+                    style="font-family:'Roboto','Noto Sans KR','Apple SD Gothic Neo',sans-serif,Arial;border:0; overflow:hidden; word-break:normal; text-align:left; vertical-align:top; font-weight:400; font-size:28px; line-height: 40px; padding:0 0 40px 0; color:#333333;">
+                    <b>[[${nickname}]]</b> Hello! <br>
+                    Welcome to <b>SQUARS</b>.
+                </td>
+            </tr>
+            <tr style="padding:0; border:0;">
+                <td>
+                    <table style="width: 100%; border:0; background:#F9F9F9; padding: 32px 0 32px;font-weight:400; overflow:hidden; word-break:normal; text-align:left; border-radius:12px; vertical-align:middle; margin:0; color:#333333!important">
+                        <tbody>
+                        <colgroup>
+                            <col style="width: 22%;">
+                            <col>
+                        </colgroup>
+                        <tr>
+                            <td style="padding: 0px 25px 14px 60px; min-width: 127px; font-size: 14px; color: #666666;">
+                                E-mail
+                            </td>
+                            <td style="padding: 0px 60px 14px 25px; font-size: 18px; color: #111111;">
+                                [[${email}]]
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 14px 25px 0px 60px; min-width: 127px; font-size: 14px; color: #666666;">
+                                Date of membership
+                            </td>
+                            <td style="padding: 14px 60px 0px 25px; font-size: 18px; color: #111111;">
+                                [[${registerDate}]] ([[${timeZoneInfo}]])
+                            </td>
+                        </tr>
+                        <tr th:if="${not #strings.isEmpty(emailCustomizingImageUrl)}">
+                            <td colspan="2"
+                                style="padding: 32px 60px 0px 25px; font-size: 14px; color: #666666; text-align: center;">
+                                <img th:src="${emailCustomizingImageUrl}" width="80%"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr style="padding: 0; border: 0;">
+                <td align="center"
+                    style="padding: 0; border: 0; overflow: hidden; word-break: normal; text-align: center; font-size: 0; padding-top: 32px;">
+                    <div><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                                     xmlns:w="urn:schemas-microsoft-com🏢word" href="https://squars.io/"
+                                     style="height:50px;v-text-anchor:middle;width:190px;" arcsize="12%" stroke="f"
+                                     fillcolor="#009DFF">
+                            <w:anchorlock></w:anchorlock>
+                            <center>
+                        <![endif]-->
+                        <a href="https://squars.io/"
+                           style="box-sizing: border-box; text-decoration: none; background-color: #009DFF; border-radius: 6px; color: #ffffff; display: inline-block; cursor: pointer; margin: 0; padding: 13px 42px; font-size: 16px; font-weight: 400; line-height: 24px;"
+                           target="_blank">Go
+                            to <strong style="font-weight:700;">SQUARS</strong></a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]--></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="~{en/footer}"></div>
+    </div>
+    </body>
+    </html>
+</xmeta>

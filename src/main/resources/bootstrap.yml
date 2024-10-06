@@ -1,0 +1,18 @@
+## Server Configuration
+server:
+  port: 8521
+
+spring:
+  profiles:
+    active: ${VIRNECT_ENV}
+  application:
+    name: account-api
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER}
+      profile: "${VIRNECT_ENV}${REGION_ENV:}"
+      name: ${spring.application.name}
+
+encrypt:
+  key: tLY2kNWrWQMfaRfB3RRbvVKN2LGo6d2n
+

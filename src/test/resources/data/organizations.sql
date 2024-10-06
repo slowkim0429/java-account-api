@@ -1,0 +1,60 @@
+set FOREIGN_KEY_CHECKS = 0;
+truncate table `organizations`;
+set FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE `organizations`
+    ALTER COLUMN id RESTART WITH 1000000000;
+
+
+INSERT INTO organizations
+(`name`, `vat_identification_number`, `email`, `email_domain`, `service_region_locale_mapping_id`, `service_region_locale_mapping_code`,
+ `service_region_locale_mapping_name`, `address`, `postal_code`, `city`, `province`, `state_name`,
+ `status`, `created_by`, `created_at`, `updated_by`, `updated_at`, is_encrypted)
+VALUES ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2021-08-11 01:48:54', 1000000000,
+        now(), false),
+       ('virnect2', '1948100552', 'support2@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'REGISTER',  1000000000, '2021-10-20 01:48:54', 1000000000,
+        now(), false),
+       ('virnect3', '1948100553', 'support3@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2021-11-12 01:48:54', 1000000000,
+        now(), false),
+       ('virnect4', '1948100554', 'organiowner2@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'REGISTER',  1000000007, '2021-12-11 01:48:54', 1000000007,
+        now(), false),
+       ('virnect5', '1948100554', 'organiowner-one@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000007, '2021-12-24 01:48:54', 1000000007,
+        now(), false),
+       ('VIRNECT PARTNER', '1948100556', 'virnectpartner@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'REGISTER',  1000000010, '2022-01-25 01:48:54', 1000000010,
+        now(), false),
+       ('VIRNECT ONPREMISE', '194810055146', 'onpremise@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000010, '2022-01-25 01:48:54', 1000000010,
+        now(), false),
+       ('VIRNECT Official', '194810055146', 'admin@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000010, '2022-02-09 01:48:54', 1000000010,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-02-07 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-03-07 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-08-06 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-10-04 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-11-24 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, '2022-11-11 01:48:54', 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@virnect.com', 'virnect.com', '1000000118', 'KR', 'Korea, Republic of',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Seoul', 'gyeonggi-do', '', 'APPROVED',  1000000000, DATEADD('DAY', -5, CURRENT_TIMESTAMP), 1000000000,
+        now(), false),
+       ('virnect', '1948100551', 'support1@gmail.com', 'gmail.com', '1000000118', 'US', 'United States of America',
+        '10-15, Hangang-daero 7-gil, Yongsan-gu', '04379', 'Massachusetts', 'Boston', 'Massachusetts', 'APPROVED',  1000000000, DATEADD('DAY', -28, CURRENT_TIMESTAMP), 1000000000,
+        now(), false);
